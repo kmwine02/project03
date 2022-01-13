@@ -18,6 +18,7 @@ const userSchema = new Schema(
             // TODO: make this a hashed value
             type: String,
             required: true
+            // may need to not require password in order to process the hash?
         },
         ratings: [
             {
@@ -27,6 +28,8 @@ const userSchema = new Schema(
         ]
     }
 );
+
+// TODO: use bcrypt to add a hashing method internal to this call
 
 const User = model('User', userSchema);
 
