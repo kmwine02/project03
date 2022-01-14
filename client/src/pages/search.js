@@ -1,11 +1,29 @@
 import React, { useState } from "react";
 import Card from "../components/card";
-export default function SearchPage({ searchAPI }) {
+
+export default function SearchPage() {
   const [movieTitle, setMovieTitle] = useState("");
-  const callAPI = (e) => {
+  const [movieData, setMovieData] = useState([]);
+
+  const callAPI = async (e) => {
     e.preventDefault();
-    window.alert(`Searching for: ${movieTitle}`);
-    searchAPI(movieTitle);
+    // TODO: Add API call information...
+    console.log(`API search for ${movieTitle}`);
+    // const APIURL = "";
+    // const response = await fetch(APIURL);
+    // const data = await response.json();
+
+    let tempData = [
+      {
+        title: "Christmas Vacation",
+        rating: 5,
+      },
+      {
+        title: "Die Hard",
+        rating: 4,
+      },
+    ];
+    setMovieData(tempData);
   };
 
   return (
@@ -19,7 +37,7 @@ export default function SearchPage({ searchAPI }) {
         ></input>
         <button id="submit">Search</button>
       </form>
-      <Card movieData />
+      <Card movieData={movieData} />
     </div>
   );
 }
