@@ -1,14 +1,14 @@
 export const menu = [
   {
     menuItem: "Home",
-    navLink: "/",
+    menuLink: "/",
   },
   {
     menuItem: "Login",
-    navLink: "/login",
+    menuLink: "/login",
   },
   {
     menuItem: "Search",
-    navLink: "/search",
+    menuLink: "/search",
   },
 ];
