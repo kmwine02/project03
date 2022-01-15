@@ -12,3 +12,5 @@ const menu = [
     navLink: "/search",
   },
 ];
+
+export default menu;
