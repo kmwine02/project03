@@ -36,3 +36,9 @@
     transform: rotate(360deg);
   }
 }
+
+.movie-card img{
+  height: 15em;
+  width: 10em;
+  margin: 1em
+}
