@@ -1,6 +1,7 @@
 import React from "react";
 import MovieRating from "./rating";
 
+
 export default function Card({ movieData }) {
   return (
     <ul>
@@ -18,5 +19,6 @@ export default function Card({ movieData }) {
         </li>
       ))}
     </ul>
+
   );
 }
