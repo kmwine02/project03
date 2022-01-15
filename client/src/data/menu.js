@@ -1,4 +1,4 @@
-const menu = [
+export const menu = [
   {
     menuItem: "Home",
     navLink: "/",
