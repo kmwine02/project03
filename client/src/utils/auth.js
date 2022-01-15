@@ -1,35 +1,41 @@
-const jwt = require('jsonwebtoken');
+import decode from "jwt-decode";
 
-const secret = 'mysecretssshhhhhhh';
-const expiration = '2h';
+class AuthService {
+  getProfile() {
+    return decode(this.getToken());
+  }
 
-module.exports = {
-  authMiddleware: function ({ req }) {
-    // allows token to be sent via req.body, req.query, or headers
-    let token = req.body.token || req.query.token || req.headers.authorization;
+  loggedIn() {
+    const token = this.getToken();
+    // If there is a token and it's not expired, return `true`
+    return token && !this.isTokenExpired(token) ? true : false;
+  }
 
-    // We split the token string into an array and return actual token
-    if (req.headers.authorization) {
-      token = token.split(' ').pop().trim();
+  isTokenExpired(token) {
+    // Decode the token to get its expiration time that was set by the server
+    const decoded = decode(token);
+    // If the expiration time is less than the current time (in seconds), the token is expired and we return `true`
+    if (decoded.exp < Date.now() / 1000) {
+      localStorage.removeItem("id_token");
+      return true;
     }
+    // If token hasn't passed its expiration time, return `false`
+    return false;
+  }
 
-    if (!token) {
-      return req;
-    }
+  getToken() {
+    return localStorage.getItem("id_token");
+  }
 
-    // if token can be verified, add the decoded user's data to the request so it can be accessed in the resolver
-    try {
-      const { data } = jwt.verify(token, secret, { maxAge: expiration });
-      req.user = data;
-    } catch {
-      console.log('Invalid token');
-    }
+  login(idToken) {
+    localStorage.setItem("id_token", idToken);
+    window.location.assign("/");
+  }
 
-    // return the request object so it can be passed to the resolver as `context`
-    return req;
-  },
-  signToken: function ({ email, name, _id }) {
-    const payload = { email, name, _id };
-    return jwt.sign({ data: payload }, secret, { expiresIn: expiration });
-  },
-};
+  logout() {
+    localStorage.removeItem("id_token");
+    window.location.reload();
+  }
+}
+
+export default new AuthService();
