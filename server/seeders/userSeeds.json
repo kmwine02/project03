@@ -1,6 +1,6 @@
 [
     {
-        "userName": "alperg",
+        "email": "alperg",
         "realName": "Alper",
         "password": "abcd1234",
         "ratings": [
@@ -9,7 +9,7 @@
         ]
     },
     {
-        "userName": "joshb",
+        "email": "joshb",
         "realName": "Josh",
         "password": "passw0rd",
         "ratings": [
@@ -18,7 +18,7 @@
         ]
     },
     {
-        "userName": "drbarl",
+        "email": "drbarl",
         "realName": "Carl, but with an emoji B",
         "password": "40trees",
         "ratings": [
