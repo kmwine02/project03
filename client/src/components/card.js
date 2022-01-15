@@ -7,7 +7,7 @@ export default function Card({ movieData }) {
     <ul>
       {movieData.map((movie) => (
         <li className="movie-card" key={movie.title}>
-          <img src="" alt="box-art"></img>
+          <img src= {movie.image} alt="box-art"></img>
           <div className="card-text">
             <p>
               <span>{movie.title}</span>
