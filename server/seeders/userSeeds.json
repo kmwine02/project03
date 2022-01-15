@@ -4,7 +4,8 @@
         "realName": "Alper",
         "password": "abcd1234",
         "ratings": [
-            
+            { "imdbID": "tt0097958", "rating": 10 },
+            { "imdbID": "tt5295990", "rating": 1}
         ]
     },
     {
@@ -12,7 +13,17 @@
         "realName": "Josh",
         "password": "passw0rd",
         "ratings": [
-            
+            { "imdbID": "tt0097958", "rating": 9 },
+            { "imdbID": "tt5295990", "rating": 4}
+        ]
+    },
+    {
+        "userName": "drbarl",
+        "realName": "Carl, but with an emoji B",
+        "password": "40trees",
+        "ratings": [
+            { "imdbID": "tt0097958", "rating": 80 },
+            { "imdbID": "tt5295990", "rating": 7}
         ]
     }
   ]

@@ -1,5 +1,3 @@
-// example content below from Josh
-
 const { Schema, model } = require('mongoose');
 
 const ratingSchema = new Schema(
