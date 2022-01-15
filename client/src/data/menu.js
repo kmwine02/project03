@@ -12,3 +12,5 @@ export const menu = [
     menuLink: "/search",
   },
 ];
+
+export default menu;
