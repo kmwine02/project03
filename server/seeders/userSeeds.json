@@ -5,7 +5,7 @@
         "password": "abcd1234",
         "ratings": [
             { "imdbID": "tt0097958", "rating": 10 },
-            { "imdbID": "tt5295990", "rating": 1}
+            { "imdbID": "tt5295990", "rating": 1 }
         ]
     },
     {
@@ -14,7 +14,7 @@
         "password": "passw0rd",
         "ratings": [
             { "imdbID": "tt0097958", "rating": 9 },
-            { "imdbID": "tt5295990", "rating": 4}
+            { "imdbID": "tt5295990", "rating": 4 }
         ]
     },
     {
@@ -23,7 +23,7 @@
         "password": "40trees",
         "ratings": [
             { "imdbID": "tt0097958", "rating": 10 },
-            { "imdbID": "tt5295990", "rating": 7}
+            { "imdbID": "tt5295990", "rating": 7 }
         ]
     }
   ]
