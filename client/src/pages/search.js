@@ -9,9 +9,9 @@ export default function SearchPage() {
     e.preventDefault();
     // TODO: Add API call information...
     console.log(`API search for ${movieTitle}`);
-    // const APIURL = "";
-    // const response = await fetch(APIURL);
-    // const data = await response.json();
+    const APIURL = `https://imdb-api.com/en/API/Search/k_gn6a28pu/${movieTitle}`;
+    const response = await fetch(APIURL);
+    const data = await response.json();
 
     let tempData = [
       {
@@ -23,7 +23,7 @@ export default function SearchPage() {
         rating: 4,
       },
     ];
-    setMovieData(tempData);
+    setMovieData(data.results);
   };
 
   return (
