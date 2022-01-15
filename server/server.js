@@ -1,11 +1,9 @@
 const express = require("express");
 const { ApolloServer } = require("apollo-server-express");
 const path = require("path");
-// const mongoose = require("mongoose");
 
 const { typeDefs, resolvers } = require("./schemas");
 const db = require("./config/connection");
-const database = require("./models");
 
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -34,38 +32,3 @@ db.once("open", () => {
     console.log(`Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`);
   });
 });
-
-// should we swap around "db" for something else?
-// what i've relearned from section 18 makes it look a bit more like
-// we should be using db to import the data models... (@caaam)
-
-// Sample data below
-db.Users.create({ userName: "alperg", realName: "Alper", password: "abcd1234"})
-  .then(userInsert => {
-    console.log(userInsert);
-  })
-  .catch(({message}) => {
-    console.log(message);
-  });
-db.Users.create({ userName: "joshb", realName: "Josh", password: "1234dcba"})
-  .then(userInsert => {
-    console.log(userInsert);
-  })
-  .catch(({message}) => {
-    console.log(message);
-  });
-db.Users.create({ userName: "carlv", realName: "Carl", password: "passw0rd"})
-  .then(userInsert => {
-    console.log(userInsert);
-  })
-  .catch(({message}) => {
-    console.log(message);
-  });
-db.Movies.create({ name: "National Lampoon's Christmas Vacation", imdbID: "tt0097958", image: "https://m.media-amazon.com/images/M/MV5BMGZkMWQ2MzMtYTkxYS00OThmLWI0ZTQtNmY0ZTkyY2E4MjliXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_FMjpg_UX1000_.jpg"})
-  .then(movieInsert => {
-    console.log(movieInsert);
-  })
-  .catch(({message}) => {
-    console.log(message);
-  });
-console.log("made it this far");
