@@ -1,0 +1,30 @@
+[
+    {
+        "email": "alperg@gmail.com",
+        "username": "alper",
+        "password": "abcd1234",
+        "ratings": [
+            { "imdbID": "tt0097958", "rating": 10 },
+            { "imdbID": "tt5295990", "rating": 1}
+        ]
+    },
+    {
+        "email": "joshb@gmail.com",
+        "username": "joshb",
+        "password": "passw0rd",
+        "ratings": [
+            { "imdbID": "tt0097958", "rating": 9 },
+            { "imdbID": "tt5295990", "rating": 4}
+        ]
+    },
+    {
+        "email": "drbarl@gmail.com",
+        "username": "drbarl",
+        "password": "40trees",
+        "ratings": [
+            { "imdbID": "tt0097958", "rating": 10 },
+            { "imdbID": "tt5295990", "rating": 7}
+        ]
+    }
+  ]
+  
