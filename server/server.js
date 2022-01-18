@@ -20,11 +20,20 @@ app.use(express.json());
 
 if (process.env.NODE_ENV === "prod") {
   app.use(express.static(path.join(__dirname, "../client/build")));
-}
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../client/public/index.html"));
-});
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "../client/public/index.html"));
+  });
+}
+//TODO Get this back-end garbage working :( 
+// app.get("/api/search", (req, res) => {
+//   console.log("test")
+//   const APIURL = `https://imdb-api.com/en/API/Search/k_gn6a28pu/inception`;
+//   fetch(APIURL).then((response) => {
+//     const data = res.json();
+//     return data;
+//   });
+// });
 
 db.once("open", () => {
   app.listen(PORT, () => {

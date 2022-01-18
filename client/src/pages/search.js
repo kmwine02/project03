@@ -7,22 +7,12 @@ export default function SearchPage() {
 
   const callAPI = async (e) => {
     e.preventDefault();
-    // TODO: Add API call information...
+    // TODO: Get route working to hide api key
     console.log(`API search for ${movieTitle}`);
     const APIURL = `https://imdb-api.com/en/API/Search/k_gn6a28pu/${movieTitle}`;
+    // const callAPI = await fetch("api/search")
     const response = await fetch(APIURL);
     const data = await response.json();
-
-    let tempData = [
-      {
-        title: "Christmas Vacation",
-        rating: 5,
-      },
-      {
-        title: "Die Hard",
-        rating: 4,
-      },
-    ];
     setMovieData(data.results);
   };
 

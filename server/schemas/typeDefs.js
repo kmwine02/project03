@@ -6,11 +6,17 @@ const typeDefs = gql`
     username: String
     email: String
     password: String
-    ratings: [Rating]!
+    movies: [Movie]
+    ratings: [Rating]
+  }
+  type Movie{
+    _id: ID
+    imdbID: String
+    name: String
+    image: String
   }
   type Rating {
     _id: ID
-    commentText: String
     createdAt: String
     treeCount: Int
   }
@@ -20,14 +26,15 @@ const typeDefs = gql`
   }
   type Query {
     users: [User]
+    movies: [Movie]
     user(username: String!): User
-    ratings: [Rating]!
+    ratings: [Rating]
     me: User
   }
 
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
-    login(email: String!, password: String!): Auth
+    login(username: String!, password: String!): Auth
     addRating(ratingMovie: String!, rating: String!): Rating
   }
 `;
