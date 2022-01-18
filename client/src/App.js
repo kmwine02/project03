@@ -12,15 +12,14 @@ const client = new ApolloClient({
 
 function App() {
   return (
-    <ApolloProvider client={client}>
-      <Router>
-        <Routes>
-          <Route exact path="/" element={<HomePage />} />
-          <Route exact path="/search" element={<SearchPage />} />
-          <Route exact path="/login" element={<LoginPage />} />
-        </Routes>
-      </Router>
-    </ApolloProvider>
+    <Router>
+      {<Navigation />}
+
+      <Routes>
+        <Route path="/" exact element={<HomePage />} />
+        <Route path="/search" element={<SearchPage />} />
+      </Routes>
+    </Router>
   );
 }
 

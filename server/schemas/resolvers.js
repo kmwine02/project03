@@ -5,7 +5,7 @@ const { signToken } = require("../utils/auth");
 const resolvers = {
   Query: {
     user: async (parent, { username }) => {
-      return Users.findOne({ username }).populate("ratings");
+      return Users.findOne({ username }).populate("ratings").populate("movies");
     },
     ratings: async () => {
       return Ratings.find().sort({ createdAt: -1 });
