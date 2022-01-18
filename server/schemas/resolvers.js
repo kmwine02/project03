@@ -5,7 +5,7 @@ const { signToken } = require("../utils/auth");
 const resolvers = {
   Query: {
     user: async (parent, { username }) => {
-      return Users.findOne({ username }).populate("ratings");
+      return Users.findOne({ username }).populate("ratings").populate("movies");
     },
     ratings: async () => {
       return Ratings.find().sort({ createdAt: -1 });
@@ -24,8 +24,8 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-    login: async (parent, { email, password }) => {
-      const user = await Users.findOne({ email });
+    login: async (parent, { username, password }) => {
+      const user = await Users.findOne({ username });
 
       if (!user) {
         throw new AuthenticationError("No user found with this email address");
