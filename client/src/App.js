@@ -1,15 +1,19 @@
 import "./App.css";
-import React, { useState, useEffect } from "react";
-import Card from "./components/card";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import SearchPage from "./pages/search";
 import HomePage from "./pages/home";
+import LoginPage from "./pages/login";
 
-import Navigation from "./components/navigation";
+const client = new ApolloClient({
+  uri: "/graphql",
+  cache: new InMemoryCache(),
+});
+
 function App() {
   return (
     <Router>
-      { <Navigation />} 
+      {<Navigation />}
 
       <Routes>
         <Route path="/" exact element={<HomePage />} />

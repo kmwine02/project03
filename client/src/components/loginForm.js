@@ -1,31 +1,41 @@
 import React, { useState } from "react";
-import Button from "@material-ui/core/Button";
+import { useMutation } from "@apollo/client";
+import { LOGIN_USER } from "../utils/mutations";
+import { Link } from "react-router-dom";
 import ModalDialog from "./ModalDialog";
+import Button from "@mui/material/Button";
+import { TextField } from "@mui/material";
 
-function LoginForm() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+import Auth from "../utils/auth";
+
+const LoginForm = () => {
   const [errorMessage, setErrorMessage] = useState("");
+  const [formState, setFormState] = useState({ username: "", password: "" });
+  const [login, { error, data }] = useMutation(LOGIN_USER);
 
-  const handleInputChange = (e) => {
-    const { target } = e;
-    const inputType = target.name;
-    const inputValue = target.value;
+  const handleChange = (event) => {
+    const { name, value } = event.target;
 
-    if (inputType === "email") {
-      setEmail(inputValue);
-    } else if (inputType === "password") {
-      setPassword(inputValue);
-    }
+    setFormState({ ...formState, [name]: value });
   };
 
-  const handleLoginFormSubmit = (e) => {
-    e.preventDefault();
+  const handleLoginFormSubmit = async (event) => {
+    event.preventDefault();
 
     // check to make sure both fields have been filled in
-    if (!password || !email) {
-      setErrorMessage("Please enter your email and password");
+    if (!formState.password || !formState.username) {
+      setErrorMessage("Please enter your username and password");
       return;
+    }
+
+    try {
+      const { data } = await login({
+        variables: { ...formState },
+      });
+
+      Auth.login(data.login.token);
+    } catch (e) {
+      console.error(e);
     }
   };
 
@@ -44,25 +54,45 @@ function LoginForm() {
 
   return (
     <>
-      <form className="form">
-        <input
-          value={email}
-          name="email"
-          onChange={handleInputChange}
-          type="email"
-          placeholder="email"
-        />
-        <input
-          value={password}
-          name="password"
-          onChange={handleInputChange}
-          type="password"
-          placeholder="password"
-        />
-        <button type="button" onClick={handleLoginFormSubmit}>
-          Submit
-        </button>
-      </form>
+      {data ? (
+        <p>
+          Success! You may now head <Link to="/">back to the homepage.</Link>
+        </p>
+      ) : (
+        <form onSubmit={handleLoginFormSubmit} className="form">
+          <TextField
+            className="form-input"
+            placeholder="Username"
+            name="username"
+            value={formState.username}
+            onChange={handleChange}
+            type="text"
+          />
+          <TextField
+            className="form-input"
+            placeholder="Password"
+            name="password"
+            value={formState.password}
+            onChange={handleChange}
+            type="password"
+          />
+
+          <Button
+            color="primary"
+            variant="contained"
+            type="submit"
+            className="form__custom-button"
+          >
+            Log in
+          </Button>
+        </form>
+      )}
+
+      {error && (
+        <div>
+          <p className="error-text">{error.message}</p>
+        </div>
+      )}
       {errorMessage && (
         <div>
           <p className="error-text">{errorMessage}</p>
@@ -76,6 +106,6 @@ function LoginForm() {
       </div>
     </>
   );
-}
+};
 
 export default LoginForm;
