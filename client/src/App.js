@@ -18,6 +18,7 @@ function App() {
       <Routes>
         <Route path="/" exact element={<HomePage />} />
         <Route path="/search" element={<SearchPage />} />
+        <Route path="/login" element={<LoginPage />} />
       </Routes>
     </Router>
   );
