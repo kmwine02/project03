@@ -40,7 +40,7 @@ function App() {
     <Router>
       {<Navigation />}
 
-      <Routes>
+      <Routes basename="https://kmwine02-project03.herokuapp.com">
         <Route path="/" exact element={<HomePage />} />
         <Route path="/search" element={<SearchPage />} />
         <Route path="/login" element={<LoginPage />} />
