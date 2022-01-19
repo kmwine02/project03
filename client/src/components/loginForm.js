@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
-import { LOGIN_USER } from "../utils/mutations";
+import { LOGIN } from "../utils/mutations";
 import { Link } from "react-router-dom";
 import ModalDialog from "./ModalDialog";
 import Button from "@mui/material/Button";
@@ -11,7 +11,7 @@ import Auth from "../utils/auth";
 const LoginForm = () => {
   const [errorMessage, setErrorMessage] = useState("");
   const [formState, setFormState] = useState({ username: "", password: "" });
-  const [login, { error, data }] = useMutation(LOGIN_USER);
+  const [login, { error, data }] = useMutation(LOGIN);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
