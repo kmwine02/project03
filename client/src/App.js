@@ -1,5 +1,5 @@
 import "./App.css";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import {
   ApolloClient,
   InMemoryCache,
@@ -14,7 +14,7 @@ import Navigation from "./components/navigation";
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
-  uri: "http://localhost:3001/graphql",
+  uri: "/graphql",
 });
 // Construct request middleware that will attach the JWT token to every request as an `authorization` header
 const authLink = setContext((_, { headers }) => {
@@ -37,15 +37,16 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-    <Router>
-      {<Navigation />}
+      <Router>
+        {<Navigation />}
 
-      <Routes>
-        <Route path="/" exact element={<HomePage />} />
-        <Route path="/search" element={<SearchPage />} />
-        <Route path="/login" element={<LoginPage />} />
-      </Routes>
-    </Router>
+        <Routes basename="https://kmwine02-project03.herokuapp.com">
+          <Route path="/" exact element={<HomePage />} />
+          <Route path="/search" element={<SearchPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="*" element={<HomePage />} />
+        </Routes>
+      </Router>
     </ApolloProvider>
   );
 }
