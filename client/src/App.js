@@ -10,6 +10,7 @@ import { setContext } from "@apollo/client/link/context";
 import SearchPage from "./pages/search";
 import HomePage from "./pages/home";
 import LoginPage from "./pages/login";
+import Navigation from "./components/navigation";
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
