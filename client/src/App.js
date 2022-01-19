@@ -1,5 +1,5 @@
 import "./App.css";
-import { BrowserRouter as Router, Routes, Route, createBrowserHistory } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useNavigate } from "react-router-dom";
 import {
   ApolloClient,
   InMemoryCache,
@@ -35,7 +35,7 @@ const client = new ApolloClient({
 });
 
 function App() {
-  const history = createBrowserHistory()
+  const history = useNavigate()
   return (
     <ApolloProvider client={client}>
     <Router history={history}>
