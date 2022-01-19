@@ -37,15 +37,16 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-    <Router>
-      {<Navigation />}
+      <Router>
+        {<Navigation />}
 
-      <Routes basename="https://kmwine02-project03.herokuapp.com">
-        <Route path="/" exact element={<HomePage />} />
-        <Route path="/search" element={<SearchPage />} />
-        <Route path="/login" element={<LoginPage />} />
-      </Routes>
-    </Router>
+        <Routes basename="https://kmwine02-project03.herokuapp.com">
+          <Route path="/" exact element={<HomePage />} />
+          <Route path="/search" element={<SearchPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="*" element={<HomePage />} />
+        </Routes>
+      </Router>
     </ApolloProvider>
   );
 }
