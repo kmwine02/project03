@@ -40,12 +40,12 @@ function App() {
       <Router>
         {<Navigation />}
 
-        {/* <Routes basename="https://kmwine02-project03.herokuapp.com"> */}
+        <Routes basename="https://kmwine02-project03.herokuapp.com">
           <Route path="/" exact element={<HomePage />} />
           <Route path="/search" element={<SearchPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="*" element={<HomePage />} />
-        {/* </Routes> */}
+        </Routes>
       </Router>
     </ApolloProvider>
   );

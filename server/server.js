@@ -23,7 +23,7 @@ app.use(express.json());
 if (process.env.NODE_ENV === "prod") {
   app.use(express.static(path.join(__dirname, "../client/build")));
 }
-app.get("*", (req, res) => {
+app.get("/*", (req, res) => {
   res.sendFile(path.join(__dirname, "../client/public/index.html"));
 });
 
@@ -32,7 +32,7 @@ app.get("*", (req, res) => {
 //   console.log("test")
 //   const APIURL = `https://imdb-api.com/en/API/Search/k_gn6a28pu/inception`;
 //   fetch(APIURL).then((response) => {
-//     const data = res.json();
+//     const data = res.json(respnose);
 //     return data;
 //   });
 // });
