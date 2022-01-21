@@ -24,8 +24,10 @@ if (process.env.NODE_ENV === "prod") {
   app.use(express.static(path.join(__dirname, "../client/build")));
 
 app.get("*", (req, res) => {
+  try{
   res.sendFile(path.join(__dirname, "../client/build/index.html"));
-  if (error) {
+  }
+  catch (error) {
     res.status(500).send(error)
   }
 });
