@@ -25,6 +25,9 @@ if (process.env.NODE_ENV === "prod") {
 }
 app.get("/*", (req, res) => {
   res.sendFile(path.join(__dirname, "../client/public/index.html"));
+  if (err) {
+    res.status(500).send(err)
+  }
 });
 
 //TODO Get this back-end garbage working :(
