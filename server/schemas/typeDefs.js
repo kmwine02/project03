@@ -17,8 +17,8 @@ const typeDefs = gql`
   }
   type Rating {
     _id: ID
-    createdAt: String
-    treeCount: Int
+    imdbID: String
+    score: Int
   }
   type Auth {
     token: ID!
@@ -35,7 +35,7 @@ const typeDefs = gql`
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(username: String!, password: String!): Auth
-    addRating(ratingMovie: String!, rating: String!): Rating
+    addRating(imdbID: String!, score: Int!): User
   }
 `;
 

@@ -41,8 +41,8 @@ const resolvers = {
 
       return { token, user };
     },
-    addRating: async (parent, { ratingMovie, rating }) => {
-      return Ratings.create({ ratingMovie, rating });
+    addRating: async (parent, { imdbID, score }) => {
+      return Ratings.create({ imdbID, score });
     },
   },
 };
