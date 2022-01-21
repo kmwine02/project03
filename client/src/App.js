@@ -11,6 +11,7 @@ import SearchPage from "./pages/search";
 import HomePage from "./pages/home";
 import LoginPage from "./pages/login";
 import Navigation from "./components/navigation";
+import NotFound404 from "./pages/notFound";
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -44,7 +45,7 @@ function App() {
           <Route path="/" exact element={<HomePage />} />
           <Route path="/search" element={<SearchPage />} />
           <Route path="/login" element={<LoginPage />} />
-          <Route path="*" element={<HomePage />} />
+          <Route path="*" element={<NotFound404 />} />
         </Routes>
       </Router>
     </ApolloProvider>
