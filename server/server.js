@@ -28,7 +28,7 @@ app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "../client/build/index.html"));
   }
   catch (error) {
-    res.status(500).send(error)
+    console.log(error)
   }
 });
 };
