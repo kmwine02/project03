@@ -23,7 +23,7 @@ app.use(express.json());
 if (process.env.NODE_ENV === "prod") {
   app.use(express.static(path.join(__dirname, "../client/build")));
 
-app.get("/", (req, res) => {
+app.get("/*", (req, res) => {
   try{
   res.sendFile(path.join(__dirname, "../client/build/index.html"));
   }
