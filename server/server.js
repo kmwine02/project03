@@ -25,8 +25,8 @@ if (process.env.NODE_ENV === "prod") {
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "../client/build/index.html"));
-  if (err) {
-    res.status(500).send(err)
+  if (error) {
+    res.status(500).send(error)
   }
 });
 };
