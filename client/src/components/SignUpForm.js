@@ -27,6 +27,7 @@ const useStyles = makeStyles((theme) => ({
 const Form = ({ handleClose }) => {
   const classes = useStyles();
   // create state variables for each input
+  const [errorMessage, setErrorMessage] = useState("");
   const [formState, setFormState] = useState({
     username: "",
     email: "",
@@ -45,7 +46,11 @@ const Form = ({ handleClose }) => {
   };
   const handleNewUserSubmit = async (event) => {
     event.preventDefault();
-    console.log(formState);
+
+    if (!formState.username || !formState.email || !formState.password) {
+      setErrorMessage("Please enter a username, email and password");
+      return;
+    }
 
     try {
       const { data } = await addUser({
@@ -102,6 +107,11 @@ const Form = ({ handleClose }) => {
       )}
       {error && (
         <div className="my-3 p-3 bg-danger text-white">{error.message}</div>
+      )}
+      {errorMessage && (
+        <div>
+          <p className="error-text">{errorMessage}</p>
+        </div>
       )}
     </div>
   );
