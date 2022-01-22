@@ -25,3 +25,7 @@ body {
 .form .form__custom-button {
   margin-top: 50px;
 }
+
+.card {
+  width: 40vw;
+}
