@@ -42,7 +42,20 @@ const resolvers = {
       return { token, user };
     },
     addRating: async (parent, { imdbID, score }) => {
-      return Ratings.create({ imdbID, score });
+      if (context.user) {
+        try {
+          const updateUser = await Users.findOneAndUpdate(
+            { _id: context.user._id },
+            { $addToSet: { ratings: [{ imdbID, score }] } },
+            { new: true, runValidators: true }
+          );
+          return updateUser;
+        } catch (err) {
+          console.log(err);
+        }
+        // return Ratings.create({ ratingMovie, rating });
+      }
+      throw new AuthenticationError("Not logged in");
     },
   },
 };
