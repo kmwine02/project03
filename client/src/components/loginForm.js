@@ -3,8 +3,10 @@ import { useMutation } from "@apollo/client";
 import { LOGIN } from "../utils/mutations";
 import { Link } from "react-router-dom";
 import ModalDialog from "./ModalDialog";
-import Button from "@mui/material/Button";
-import { TextField } from "@mui/material";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
+import Card from "react-bootstrap/Card";
+import "./css/loginForm.css";
 
 import Auth from "../utils/auth";
 
@@ -59,33 +61,46 @@ const LoginForm = () => {
           Success! You may now head <Link to="/">back to the homepage.</Link>
         </p>
       ) : (
-        <form onSubmit={handleLoginFormSubmit} className="form">
-          <TextField
-            className="form-input"
-            placeholder="Username"
-            name="username"
-            value={formState.username}
-            onChange={handleChange}
-            type="text"
-          />
-          <TextField
-            className="form-input"
-            placeholder="Password"
-            name="password"
-            value={formState.password}
-            onChange={handleChange}
-            type="password"
-          />
-
-          <Button
-            color="primary"
-            variant="contained"
-            type="submit"
-            className="form__custom-button"
-          >
-            Log in
-          </Button>
-        </form>
+        <Card>
+          <Form onSubmit={handleLoginFormSubmit} className="form">
+            <Form.Group className="mb-3" controlId="formBasicUsername">
+              <Form.Label>Username</Form.Label>
+              <Form.Control
+                className="form-input"
+                placeholder="Enter username"
+                type="text"
+                name="username"
+                value={formState.username}
+                onChange={handleChange}
+              ></Form.Control>
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formBasicPassword">
+              <Form.Label>Password</Form.Label>
+              <Form.Control
+                className="form-input"
+                placeholder="Enter password"
+                type="password"
+                name="password"
+                value={formState.password}
+                onChange={handleChange}
+              ></Form.Control>
+            </Form.Group>
+            <Button
+              color="primary"
+              variant="primary"
+              type="submit"
+              className="form__custom-button"
+            >
+              Log in
+            </Button>
+            <div className="Signup">
+              <Button variant="contained" color="primary" onClick={handleOpen}>
+                Sign up
+              </Button>
+              <ModalDialog open={open} handleClose={handleClose} />
+            </div>
+          </Form>
+        </Card>
       )}
 
       {error && (
@@ -98,12 +113,6 @@ const LoginForm = () => {
           <p className="error-text">{errorMessage}</p>
         </div>
       )}
-      <div className="Signup">
-        <Button variant="contained" color="primary" onClick={handleOpen}>
-          Sign up
-        </Button>
-        <ModalDialog open={open} handleClose={handleClose} />
-      </div>
     </>
   );
 };

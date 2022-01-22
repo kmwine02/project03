@@ -3,11 +3,9 @@ import "../components/css/footer.css";
 
 const Footer = () => {
   return (
-    <>
-      <div className="footer">
-        <p>&copy; {new Date().getFullYear()} All rights reserved.</p>
-      </div>
-    </>
+    <footer>
+      <p>&copy; {new Date().getFullYear()} All rights reserved.</p>
+    </footer>
   );
 };
 
