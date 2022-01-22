@@ -1,3 +1,34 @@
+.well {
+  background-color: #d5a84d;
+}
+
+#content {
+  padding: 25% 25% 5%;
+}
+
 .search-form {
-  padding: 2vw;
+  border-radius: 30px 0 0 30px;
+}
+
+.input-group {
+  width: 100%;
+}
+
+input-group-btn {
+  max-width: 38px;
+}
+
+#search {
+  border: 1px;
+}
+
+.search-btn {
+  cursor: pointer;
+  border-radius: 0 30px 30px 0;
+  /* background-color: #d5a84d; */
+  color: #000;
+}
+
+.text-center {
+  color: #fff;
 }
