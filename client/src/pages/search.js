@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import MovieCard from "../components/card";
 import "../components/css/search.css";
+import { CgSearch } from "react-icons/cg";
 
 export default function SearchPage() {
   const [movieTitle, setMovieTitle] = useState("");
@@ -19,16 +20,30 @@ export default function SearchPage() {
 
   return (
     <div className="search-form">
-      <form onSubmit={callAPI}>
-        <label>Movie Title: </label>
-        <input
-          value={movieTitle}
-          onChange={(e) => setMovieTitle(e.target.value)}
-          type="text"
-        ></input>
-        <button id="submit">Search</button>
-      </form>
-      <MovieCard className="movie-card" movieData={movieData} />
+      <div id="content">
+        <form className="form-inline" onSubmit={callAPI}>
+          <div className="input-group">
+            <input
+              type="text"
+              id="search"
+              className="form-control search-form"
+              value={movieTitle}
+              onChange={(e) => setMovieTitle(e.target.value)}
+              placeholder="Movie Title"
+            />
+            <span className="input-group-btn">
+              <button
+                id="search-this submit"
+                type="button"
+                className="pull-right btn btn-default search-btn"
+              >
+                <CgSearch />
+              </button>
+            </span>
+          </div>
+        </form>
+        <MovieCard className="movie-card" movieData={movieData} />
+      </div>
     </div>
   );
 }
