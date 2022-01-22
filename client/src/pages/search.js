@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Card from "../components/card";
+import MovieCard from "../components/card";
 
 export default function SearchPage() {
   const [movieTitle, setMovieTitle] = useState("");
@@ -27,7 +27,7 @@ export default function SearchPage() {
         ></input>
         <button id="submit">Search</button>
       </form>
-      <Card movieData={movieData} />
+      <MovieCard movieData={movieData} />
     </div>
   );
 }
