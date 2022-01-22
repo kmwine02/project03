@@ -4,8 +4,6 @@ import "../components/css/card.css";
 import Card from "react-bootstrap/Card";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { ADD_RATING } from "../utils/mutations";
-import AuthService from "../utils/auth";
 
 export default function MovieCard({ movieData }) {
   return (
@@ -18,7 +16,7 @@ export default function MovieCard({ movieData }) {
               <Card.Body className="card-text">
                 <Card.Title>{movie.title}</Card.Title>
                 <Card.Text>{movie.rating}</Card.Text>
-                <MovieRating movie={movie.title} />
+                <MovieRating movie={movie} />
               </Card.Body>
             </Card>
           </Col>
