@@ -1,0 +1,37 @@
+.movie-card img {
+  height: 15em;
+  width: 10em;
+  margin: 1em;
+}
+
+.card-text {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.movie-card {
+  height: 100%;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card-text {
+  justify-content: center;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.rating-0-1-1 {
+  justify-content: center;
+}
+
+.col {
+  flex: 0 0;
+}
