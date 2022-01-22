@@ -3,8 +3,9 @@ footer {
   padding: 1rem;
   background-color: rgb(14, 73, 44);
   width: 100%;
-
   text-align: center;
   color: white;
-  margin: auto auto 0 auto;
+  position: fixed;
+  bottom: 0;
+  left: 0;
 }

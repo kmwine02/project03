@@ -6,7 +6,7 @@ import ModalDialog from "./ModalDialog";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Card from "react-bootstrap/Card";
-import "../css/loginForm.css";
+import "./css/loginForm.css";
 
 import Auth from "../utils/auth";
 
