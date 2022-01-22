@@ -8,8 +8,8 @@ export const QUERY_USER = gql`
       email
       ratings {
         _id
-        createdAt
-        treeCount
+        imdbID
+        score
       }
     }
   }
