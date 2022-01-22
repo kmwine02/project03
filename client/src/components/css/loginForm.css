@@ -1,12 +1,3 @@
-* {
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  background: #637d63;
-}
-
 .App {
   font-family: sans-serif;
   text-align: center;
@@ -17,7 +8,7 @@ body {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  background: white;
+
   padding: 20px;
   margin-top: 30px;
 }
@@ -27,5 +18,7 @@ body {
 }
 
 .card {
+  margin-top: 3em;
   width: 40vw;
+  background:linear-gradient(to right bottom, #917231, #B5AE5B, #8B6D24);
 }
