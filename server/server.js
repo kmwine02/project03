@@ -22,11 +22,15 @@ app.use(express.json());
 
 if (process.env.NODE_ENV === "prod") {
   app.use(express.static(path.join(__dirname, "../client/build")));
-}
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../client/public/index.html"));
-});
 
+  app.get("*", (req, res) => {
+    try {
+      res.sendFile(path.join(__dirname, "../client/build/index.html"));
+    } catch (error) {
+      console.log(error);
+    }
+  });
+}
 //TODO Get this back-end garbage working :(
 // app.get("/api/search", (req, res) => {
 //   console.log("test")
