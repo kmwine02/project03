@@ -11,6 +11,7 @@ import SearchPage from "./pages/search";
 import HomePage from "./pages/home";
 import LoginPage from "./pages/login";
 import Navigation from "./components/navigation";
+import Footer from "./components/footer";
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -38,14 +39,14 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        {<Navigation />}
-
+        <Navigation />
         <Routes basename="https://kmwine02-project03.herokuapp.com">
           <Route path="/" exact element={<HomePage />} />
           <Route path="/search" element={<SearchPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="*" element={<HomePage />} />
         </Routes>
+        <Footer />
       </Router>
     </ApolloProvider>
   );

@@ -3,7 +3,6 @@ import { FaTree as Logo } from "react-icons/fa";
 import { menu } from "../data/menu";
 import { NavLink } from "react-router-dom";
 import "../components/css/Header.css";
-import Footer from "../components/footer";
 
 export default function Navigation() {
   return (
@@ -26,7 +25,6 @@ export default function Navigation() {
           </div>
         </div>
       </div>
-      <div>{<Footer />}</div>
     </>
   );
 }
