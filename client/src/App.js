@@ -38,6 +38,7 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
+        <div className="main">
         {<Navigation />}
 
         <Routes basename="https://kmwine02-project03.herokuapp.com">
@@ -46,6 +47,7 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="*" element={<HomePage />} />
         </Routes>
+        </div>
       </Router>
     </ApolloProvider>
   );

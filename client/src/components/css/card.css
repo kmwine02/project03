@@ -1,3 +1,10 @@
+.cardResults{
+  display:flex;
+  justify-content: center;
+  width: 50%;
+  margin: auto;
+  margin-bottom: 5em;
+}
 .movie-card img {
   height: 15em;
   width: 10em;
@@ -10,7 +17,10 @@
 }
 
 .movie-card {
+  display: flex;
+  align-items: center;
   height: 100%;
+  z-index: -1;
 }
 
 .card-container {
