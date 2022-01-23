@@ -2,6 +2,7 @@ import React from "react";
 import { FaTree as Logo } from "react-icons/fa";
 import { menu } from "../data/menu";
 import { NavLink } from "react-router-dom";
+import Lights from "./Lights"
 import "../components/css/Header.css";
 
 export default function Navigation() {
@@ -25,6 +26,7 @@ export default function Navigation() {
           </div>
         </div>
       </div>
+      <Lights/>
     </>
   );
 }
