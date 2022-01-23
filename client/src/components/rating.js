@@ -12,12 +12,12 @@ export default function MovieRating({ movie }) {
   const callRating = async (e) => {
     const rating = e;
     console.log(
-      `${user.data.username} (${user.data._id}) rates ${movie.title} (${movie.imdbID}) - ${rating} trees!`
+      `${user.data.username} (${user.data._id}) rates ${movie.title} (${movie.id}) - ${rating} trees!`
     );
     try {
-      console.log(`${movie.imdbID} and ${rating}`);
+      console.log(`${movie.id} and ${rating}`);
       const { data } = await addRating({
-        variables: { imdbID: movie.imdbID, score: rating, ID: user.data._id },
+        variables: { imdbID: movie.id, score: rating, ID: user.data._id },
       });
       console.log(data);
     } catch (err) {
