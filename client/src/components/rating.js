@@ -5,11 +5,14 @@ import AuthService from "../utils/auth";
 import { useMutation } from "@apollo/client";
 
 export default function MovieRating({ movie }) {
-  const user = AuthService.getProfile();
   const [userRating, setUserRating] = useState(0);
   const [addRating, { error }] = useMutation(ADD_RATING);
 
   const callRating = async (e) => {
+    if (!AuthService.loggedIn()) {
+      return window.location.replace("/login");
+    }
+    const user = AuthService.getProfile();
     const rating = e;
     console.log(
       `${user.data.username} (${user.data._id}) rates ${movie.title} (${movie.id}) - ${rating} trees!`
