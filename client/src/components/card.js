@@ -10,8 +10,8 @@ export default function MovieCard({ movieData }) {
     <>
       <Row className="card-container g-4">
         {movieData.map((movie) => (
-          <Col>
-            <Card className="movie-card" key={movie.title}>
+          <Col key={movie.id}>
+            <Card className="movie-card" >
               <Card.Img src={movie.image} alt="box-art"></Card.Img>
               <Card.Body className="card-text">
                 <Card.Title>{movie.title}</Card.Title>
