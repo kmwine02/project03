@@ -12,8 +12,9 @@ const ProfilePage = () => {
   // console.log(AuthService.getProfile());
   // console.log(AuthService.loggedIn());
   const user = AuthService.getProfile();
+  // console.log(user.data.username);
   const { loading, data } = useQuery(QUERY_ME, {
-    variables: { username: user.data.username },
+    variables: {},
   });
   console.log(data);
 
