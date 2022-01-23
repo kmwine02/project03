@@ -1,11 +1,20 @@
-import React from "react";
+import React, { useState, useContext } from "react";
 import { FaTree as Logo } from "react-icons/fa";
 import { menu } from "../data/menu";
 import { NavLink } from "react-router-dom";
-import Lights from "./Lights"
+import Lights from "./Lights";
 import "../components/css/Header.css";
+import AuthService from "../utils/auth";
 
 export default function Navigation() {
+  const [isLoggedIn, setLoggedIn] = useState(AuthService.loggedIn());
+  const navItems = isLoggedIn
+    ? // ? [{ className: "option", menuItem: "LoggedIn", menuLink: "/" }]
+      // : [{ className: "option", menuItem: "LoggedOut", menuLink: "/" }];
+      menu.filter((item) => item.loginView === true)
+    : menu.filter((item) => item.logoutView === true);
+  console.log(isLoggedIn);
+  console.log(navItems);
   return (
     <>
       <div className="header">
@@ -17,7 +26,7 @@ export default function Navigation() {
           </div>
           <div className="navbar">
             <ul className="nav-list">
-              {menu.map((item) => (
+              {navItems.map((item) => (
                 <li className={item.className} key={item.menuItem}>
                   <NavLink to={item.menuLink}>{item.menuItem}</NavLink>
                 </li>
@@ -26,7 +35,7 @@ export default function Navigation() {
           </div>
         </div>
       </div>
-      <Lights/>
+      <Lights />
     </>
   );
 }
