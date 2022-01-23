@@ -10,6 +10,7 @@ import { setContext } from "@apollo/client/link/context";
 import SearchPage from "./pages/search";
 import HomePage from "./pages/home";
 import LoginPage from "./pages/login";
+import ProfilePage from "./pages/profile";
 import Navigation from "./components/navigation";
 import Footer from "./components/footer";
 
@@ -40,14 +41,15 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <div className="main">
-        {<Navigation />}
+          {<Navigation />}
 
-        <Routes basename="https://kmwine02-project03.herokuapp.com">
-          <Route path="/" exact element={<HomePage />} />
-          <Route path="/search" element={<SearchPage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="*" element={<HomePage />} />
-        </Routes>
+          <Routes basename="https://kmwine02-project03.herokuapp.com">
+            <Route path="/" exact element={<HomePage />} />
+            <Route path="/search" element={<SearchPage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/profile" element={<ProfilePage />} />
+            <Route path="*" element={<HomePage />} />
+          </Routes>
         </div>
         <Footer />
       </Router>

@@ -29,7 +29,7 @@ export const menu = [
   },
   {
     menuItem: "Profile",
-    menuLink: "/me",
+    menuLink: "/profile",
     className: "option",
     loginView: true,
     logoutView: false,
