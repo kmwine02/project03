@@ -14,6 +14,13 @@ export const menu = [
     logoutView: true,
   },
   {
+    menuItem: "Logout",
+    menuLink: "/logout",
+    className: "option",
+    loginView: true,
+    logoutView: false,
+  },
+  {
     menuItem: "Search",
     menuLink: "/search",
     className: "option",
