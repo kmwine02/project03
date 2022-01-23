@@ -16,7 +16,7 @@ export default function MovieCard({ movieData }) {
               <Card.Body className="card-text">
                 <Card.Title>{movie.title}</Card.Title>
                 <Card.Text>{movie.rating}</Card.Text>
-                <MovieRating movie={movie.title} />
+                <MovieRating movie={movie} />
               </Card.Body>
             </Card>
           </Col>

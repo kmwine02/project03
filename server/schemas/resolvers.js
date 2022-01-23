@@ -41,20 +41,23 @@ const resolvers = {
 
       return { token, user };
     },
-    addRating: async (parent, { imdbID, score }) => {
-      if (context.user) {
-        try {
-          const updateUser = await Users.findOneAndUpdate(
-            { _id: context.user._id },
-            { $addToSet: { ratings: [{ imdbID, score }] } },
-            { new: true, runValidators: true }
-          );
-          return updateUser;
-        } catch (err) {
-          console.log(err);
-        }
-        // return Ratings.create({ ratingMovie, rating });
+    addRating: async (parent, { imdbID, score, ID }) => {
+      // if (true) {
+      try {
+        // console.log(context);
+        console.log("updating user...");
+        const updateUser = await Users.findOneAndUpdate(
+          { _id: ID },
+          { $addToSet: { ratings: { imdbID, score } } },
+          { new: true, runValidators: true }
+        );
+        return updateUser;
+      } catch (err) {
+        // console.log(context);
+        console.log(err);
       }
+      // return Ratings.create({ ratingMovie, rating });
+      // }
       throw new AuthenticationError("Not logged in");
     },
   },

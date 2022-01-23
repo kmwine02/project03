@@ -27,7 +27,7 @@ const userSchema = new Schema({
         required: true,
         trim: true,
       },
-      rating: {
+      score: {
         type: Number,
         min: 0,
         max: 80,
