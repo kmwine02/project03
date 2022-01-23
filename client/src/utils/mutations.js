@@ -23,9 +23,9 @@ export const ADD_USER = gql`
 `;
 
 export const ADD_RATING = gql`
-  mutation addRating($imdbID: String!, $score: Int!) {
-    addRating(imdbID: $imdbID, score: $score) {
-      User
+  mutation addRating($imdbID: String!, $score: Int!, $ID: ID!) {
+    addRating(imdbID: $imdbID, score: $score, ID: $ID) {
+      username
     }
   }
 `;
