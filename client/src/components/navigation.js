@@ -8,6 +8,8 @@ import AuthService from "../utils/auth";
 
 export default function Navigation() {
   const [isLoggedIn, setLoggedIn] = useState(AuthService.loggedIn());
+  const user = AuthService.getProfile();
+
   const navItems = isLoggedIn
     ? // ? [{ className: "option", menuItem: "LoggedIn", menuLink: "/" }]
       // : [{ className: "option", menuItem: "LoggedOut", menuLink: "/" }];
@@ -24,6 +26,7 @@ export default function Navigation() {
               <Logo className="logo" />
             </a>
           </div>
+          <div className="user-name-header">{user.data.username}</div>
           <div className="navbar">
             <ul className="nav-list">
               {navItems.map((item) => (
