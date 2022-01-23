@@ -8,15 +8,31 @@ import AuthService from "../utils/auth";
 
 export default function Navigation() {
   const [isLoggedIn, setLoggedIn] = useState(AuthService.loggedIn());
-  const user = AuthService.getProfile();
+
+  const user = () => {
+    try {
+      if (isLoggedIn) {
+        const profile = AuthService.getProfile();
+        return profile.data.username;
+      } else {
+        return "";
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const userLogOut = (e) => {
+    if (e.target.text === "Logout") {
+      AuthService.logout();
+    }
+  };
 
   const navItems = isLoggedIn
-    ? // ? [{ className: "option", menuItem: "LoggedIn", menuLink: "/" }]
-      // : [{ className: "option", menuItem: "LoggedOut", menuLink: "/" }];
-      menu.filter((item) => item.loginView === true)
+    ? menu.filter((item) => item.loginView === true)
     : menu.filter((item) => item.logoutView === true);
-  console.log(isLoggedIn);
-  console.log(navItems);
+  // console.log(isLoggedIn);
+  // console.log(navItems);
   return (
     <>
       <div className="header">
@@ -26,11 +42,16 @@ export default function Navigation() {
               <Logo className="logo" />
             </a>
           </div>
-          <div className="user-name-header">{user.data.username}</div>
+          <div className="user-name-header">{user()} </div>
+          {/* {user.data.username} */}
           <div className="navbar">
             <ul className="nav-list">
               {navItems.map((item) => (
-                <li className={item.className} key={item.menuItem}>
+                <li
+                  className={item.className}
+                  key={item.menuItem}
+                  onClick={userLogOut}
+                >
                   <NavLink to={item.menuLink}>{item.menuItem}</NavLink>
                 </li>
               ))}
