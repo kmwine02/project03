@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   width: 50%;
-  margin: auto;
+  margin: auto 25% auto 28%;
   margin-bottom: 5em;
 }
 .movie-card img {

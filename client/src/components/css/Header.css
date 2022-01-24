@@ -4,6 +4,8 @@ a {
 }
 .header {
   display: flex;
+  position: fixed;
+  top: -.25em;
   background: linear-gradient(#0e492c, #456f4b);
   justify-content: space-between;
   align-items: center;
