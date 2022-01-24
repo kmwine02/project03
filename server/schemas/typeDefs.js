@@ -36,6 +36,7 @@ const typeDefs = gql`
     addUser(username: String!, email: String!, password: String!): Auth
     login(username: String!, password: String!): Auth
     addRating(imdbID: String!, score: Int!, ID: ID!): User
+    addMovie(imdbID: String!, image: String!, name: String!): Movie
   }
 `;
 

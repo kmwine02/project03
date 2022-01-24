@@ -60,6 +60,25 @@ const resolvers = {
       // }
       throw new AuthenticationError("Not logged in");
     },
+    addMovie: async (parent, { imdbID, image, name }) => {
+      try {
+        const alreadyRated = await Movies.find({ imdbID: imdbID });
+        if (alreadyRated) {
+          return alreadyRated;
+        }
+        const newMovie = await Movies.create(
+          {
+            imdbID,
+            name,
+            image,
+          },
+          { new: true, runValidators: true }
+        );
+        return newMovie;
+      } catch (err) {
+        console.log(err);
+      }
+    },
   },
 };
 

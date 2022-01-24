@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Rating from "react-rating-scale";
-import { ADD_RATING } from "../utils/mutations";
+import { ADD_RATING, ADD_MOVIE } from "../utils/mutations";
 import AuthService from "../utils/auth";
 import { useMutation } from "@apollo/client";
 
@@ -14,15 +14,15 @@ export default function MovieRating({ movie }) {
     }
     const user = AuthService.getProfile();
     const rating = e;
-    console.log(
-      `${user.data.username} (${user.data._id}) rates ${movie.title} (${movie.id}) - ${rating} trees!`
-    );
     try {
       console.log(`${movie.id} and ${rating}`);
       const { data } = await addRating({
         variables: { imdbID: movie.id, score: rating, ID: user.data._id },
       });
-      console.log(data);
+
+      const { ratedMovie } = await ADD_MOVIE({
+        variable: { imdbID: movie.id, name: movie.title, image: movie.image },
+      });
     } catch (err) {
       console.log(err);
     }

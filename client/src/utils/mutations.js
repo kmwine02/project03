@@ -29,3 +29,11 @@ export const ADD_RATING = gql`
     }
   }
 `;
+
+export const ADD_MOVIE = gql`
+  mutation addMovie($imdbID: String!, $image: String!, $name: String!) {
+    addMovie(imdbID: $imdbID, image: $image, name: $name) {
+      name
+    }
+  }
+`;
