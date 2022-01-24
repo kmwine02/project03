@@ -14,7 +14,7 @@ export default function HomePage() {
           <div className="snowGlobe">
             <img src={SnowGlobe}/>
           </div>
-          <NavLink to="/search"><Button className="homeButton" variant="success" size="lg">Get Started!</Button>{' '}</NavLink>
+          <NavLink to="/login"><Button className="homeButton" variant="success" size="lg">Get Started!</Button>{' '}</NavLink>
       </div>
     </>
   );
