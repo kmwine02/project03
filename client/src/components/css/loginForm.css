@@ -1,24 +1,38 @@
 .App {
+  display: flex;
+  flex-direction: column;
   font-family: sans-serif;
   text-align: center;
+  align-items: center;
 }
 
 .form {
-  max-width: 330px;
-  margin: 0 auto;
+  min-width: 35em;
+  margin: 5em 10em 0 10em;
   display: flex;
   flex-direction: column;
-
+  justify-content: center;
+  align-items: center;
+  background:linear-gradient(to right bottom, #917231, #B5AE5B, #8B6D24);
   padding: 20px;
-  margin-top: 30px;
+}
+.mb-3{
+  width: 75%;
 }
 
 .form .form__custom-button {
   margin-top: 50px;
+  width: 10em;
 }
-
-.card {
-  margin-top: 3em;
-  width: 40vw;
-  background:linear-gradient(to right bottom, #917231, #B5AE5B, #8B6D24);
+.errorContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background:linear-gradient(to right bottom, #917231, #B5AE5B, #8B6D24);;
+  width: 25%;
+  padding: 0;
+}
+.error-text{
+  color: white;
 }
