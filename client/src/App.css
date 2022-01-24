@@ -35,7 +35,7 @@
 .main{
   padding-top: 5em;
   min-height: 200vh;
-  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.15)) ,url(https://wallpaperaccess.com/full/116264.jpg);
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.25)) ,url(https://wallpaperaccess.com/full/116264.jpg);
   background-attachment: fixed;
 }
 
