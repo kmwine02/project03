@@ -1,0 +1,40 @@
+.homeContainer{
+    display: flex;
+    flex-direction: column;
+    color: #AD8A38;
+    margin: auto;
+    margin-top: 10em;
+    width: 75%;
+    justify-content:center;
+    align-items: center;
+    background: linear-gradient(#456f4b, #0e492c);
+    border: 15px solid green;
+    border-image: repeating-linear-gradient(
+        45deg,
+        red,
+        red 5px,
+        white 20px,
+        white 30px
+      )
+      20;
+}
+.homeContainer h1{
+    font-size: 3em;
+    font-weight: bolder;
+}
+.snowGlobe{
+    margin: 2em 0 2em 0;
+    box-shadow: -15px 10px 10px rgb(3, 41, 3);
+    border: 8px solid green;
+    border-image: repeating-linear-gradient(
+        45deg,
+        red,
+        red 5px,
+        white 20px,
+        white 30px
+      )
+      20;
+}
+.homeButton{
+    margin: 1em;
+}

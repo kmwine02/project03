@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import ModalDialog from "./ModalDialog";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import Card from "react-bootstrap/Card";
 import "./css/loginForm.css";
 
 import Auth from "../utils/auth";
@@ -60,8 +59,7 @@ const LoginForm = () => {
         <p>
           Success! You may now head <Link to="/">back to the homepage.</Link>
         </p>
-      ) : (
-        <Card>
+      ) : ( 
           <Form onSubmit={handleLoginFormSubmit} className="form">
             <Form.Group className="mb-3" controlId="formBasicUsername">
               <Form.Label>Username</Form.Label>
@@ -99,13 +97,12 @@ const LoginForm = () => {
               </Button>
               <ModalDialog open={open} handleClose={handleClose} />
             </div>
-          </Form>
-        </Card>
+          </Form>   
       )}
 
       {error && (
-        <div>
-          <p className="error-text">{error.message}</p>
+        <div className="errorContainer">
+          <p className="error-text">{"The username or password is incorrect"}</p>
         </div>
       )}
       {errorMessage && (

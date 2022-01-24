@@ -1,13 +1,13 @@
 .cardResults {
   display: flex;
   justify-content: center;
-  width: 50%;
-  margin: auto 25% auto 29%;
+  width: 100%;
+  margin: auto;
   margin-bottom: 5em;
 }
 .movie-card img {
-  height: 15em;
-  width: 10em;
+  height: 12em;
+  width: 8em;
   margin: 1em;
 }
 
@@ -18,18 +18,21 @@
 
 .movie-card {
   display: flex;
+  text-align: center;
   align-items: center;
-  height: 100%;
+  justify-content: flex-end;
+  border-radius: 20px;
+  height: 21em;
+  width: 21em;
   z-index: 99;
+  background:linear-gradient(to right bottom, #917231, #B5AE5B, #8B6D24);
 }
 
 .card-container {
   display: flex;
   flex-wrap: wrap;
-}
-
-.card-text {
   justify-content: center;
+  width: 100%;
 }
 
 .card-body {
