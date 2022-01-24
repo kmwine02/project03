@@ -32,6 +32,8 @@ export const QUERY_ME = gql`
       ratings {
         imdbID
         score
+        image
+        title
       }
     }
   }

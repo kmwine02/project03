@@ -32,6 +32,14 @@ const userSchema = new Schema({
         min: 0,
         max: 80,
       },
+      image: {
+        type: String,
+        trim: true,
+      },
+      title: {
+        type: String,
+        trim: true,
+      },
     },
   ],
 });

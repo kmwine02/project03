@@ -6,7 +6,8 @@ import { useMutation } from "@apollo/client";
 
 export default function MovieRating({ movie }) {
   const [userRating, setUserRating] = useState(0);
-  const [addRating, { error }] = useMutation(ADD_RATING);
+  const [addRating, { ratingError }] = useMutation(ADD_RATING);
+  // const [addMovie, { movieError }] = useMutation(ADD_MOVIE);
 
   const callRating = async (e) => {
     if (!AuthService.loggedIn()) {
@@ -15,14 +16,19 @@ export default function MovieRating({ movie }) {
     const user = AuthService.getProfile();
     const rating = e;
     try {
-      console.log(`${movie.id} and ${rating}`);
       const { data } = await addRating({
-        variables: { imdbID: movie.id, score: rating, ID: user.data._id },
+        variables: {
+          imdbID: movie.id,
+          score: rating,
+          ID: user.data._id,
+          title: movie.title,
+          image: movie.image,
+        },
       });
 
-      const { ratedMovie } = await ADD_MOVIE({
-        variable: { imdbID: movie.id, name: movie.title, image: movie.image },
-      });
+      // const { ratedMovie } = await addMovie({
+      //   variables: { imdbID: movie.id, name: movie.title, image: movie.image },
+      // });
     } catch (err) {
       console.log(err);
     }
@@ -33,6 +39,7 @@ export default function MovieRating({ movie }) {
       <Rating
         length={5}
         // width={30}
+        rating={movie.score}
         value={userRating}
         onSelect={callRating}
       />

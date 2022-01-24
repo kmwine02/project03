@@ -41,14 +41,11 @@ const resolvers = {
 
       return { token, user };
     },
-    addRating: async (parent, { imdbID, score, ID }) => {
-      // if (true) {
+    addRating: async (parent, { imdbID, score, ID, title, image }) => {
       try {
-        // console.log(context);
-        console.log("updating user...");
         const updateUser = await Users.findOneAndUpdate(
           { _id: ID },
-          { $addToSet: { ratings: { imdbID, score } } },
+          { $addToSet: { ratings: { imdbID, score, title, image } } },
           { new: true, runValidators: true }
         );
         return updateUser;
@@ -58,22 +55,20 @@ const resolvers = {
       }
       // return Ratings.create({ ratingMovie, rating });
       // }
-      throw new AuthenticationError("Not logged in");
+      throw new AuthenticationError("Error in addRating...");
     },
+
     addMovie: async (parent, { imdbID, image, name }) => {
       try {
-        const alreadyRated = await Movies.find({ imdbID: imdbID });
+        const alreadyRated = await Movies.find({ imdbID });
         if (alreadyRated) {
           return alreadyRated;
         }
-        const newMovie = await Movies.create(
-          {
-            imdbID,
-            name,
-            image,
-          },
-          { new: true, runValidators: true }
-        );
+        const newMovie = await Movies.create({
+          imdbID,
+          name,
+          image,
+        });
         return newMovie;
       } catch (err) {
         console.log(err);
