@@ -13,7 +13,7 @@ export default function Navigation() {
     try {
       if (isLoggedIn) {
         const profile = AuthService.getProfile();
-        return profile.data.username;
+        return `Welcome, ${profile.data.username}`;
       } else {
         return "";
       }

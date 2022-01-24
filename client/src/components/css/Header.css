@@ -5,7 +5,7 @@ a {
 .header {
   display: flex;
   position: fixed;
-  top: -.25em;
+  top: -0.25em;
   background: linear-gradient(#0e492c, #456f4b);
   justify-content: space-between;
   align-items: center;
@@ -27,7 +27,7 @@ a {
 .logo {
   width: 45px;
   height: 45px;
-  color: #A01B22
+  color: #a01b22;
 }
 .nav-options {
   padding-left: 25px;
@@ -36,15 +36,20 @@ a {
   grid-gap: 50px;
   list-style-type: none;
 }
-.navbar ul{
+.navbar ul {
   display: flex;
 }
-.navbar li{
-  margin: .5em;
+.navbar li {
+  margin: 0.5em;
   font-size: 1.5em;
 }
-.navbar a{
-  color: #AD8A38;
+.navbar a {
+  color: #ad8a38;
+  font-weight: bold;
+  text-decoration: none;
+}
+.user-name-header {
+  color: #ad8a38;
   font-weight: bold;
   text-decoration: none;
 }
@@ -111,8 +116,8 @@ a {
     align-content: center;
     padding-left: 0px;
   }
-  .navbar li{
-    font-size: 1em
+  .navbar li {
+    font-size: 1em;
   }
 
   .menu-icon {
