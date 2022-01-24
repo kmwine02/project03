@@ -41,23 +41,44 @@ const resolvers = {
 
       return { token, user };
     },
+
     addRating: async (parent, { imdbID, score, ID, title, image }) => {
       try {
-        const updateUser = await Users.findOneAndUpdate(
-          { _id: ID },
-          { $addToSet: { ratings: { imdbID, score, title, image } } },
-          { new: true, runValidators: true }
+        let updateUser;
+        const userRating = await Users.findOne({
+          _id: ID,
+        });
+
+        // console.log(userRating);
+        const priorRating = userRating.ratings.find(
+          (movie) => movie.imdbID === imdbID
         );
+        console.log(priorRating);
+        if (priorRating) {
+          updateUser = await Users.update(
+            {
+              _id: ID,
+              "ratings.imdbID": imdbID,
+            },
+            {
+              $set: {
+                "ratings.$.score": score,
+              },
+            }
+          );
+        } else {
+          updateUser = await Users.findOneAndUpdate(
+            { _id: ID },
+            { $addToSet: { ratings: { imdbID, score, title, image } } },
+            { new: true, runValidators: true }
+          );
+        }
         return updateUser;
       } catch (err) {
-        // console.log(context);
         console.log(err);
       }
-      // return Ratings.create({ ratingMovie, rating });
-      // }
       throw new AuthenticationError("Error in addRating...");
     },
-
     addMovie: async (parent, { imdbID, image, name }) => {
       try {
         const alreadyRated = await Movies.find({ imdbID });

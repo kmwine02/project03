@@ -18,7 +18,7 @@ export default function MovieRating({ movie }) {
     try {
       const { data } = await addRating({
         variables: {
-          imdbID: movie.id,
+          imdbID: movie.id ? movie.id : movie.imdbID,
           score: rating,
           ID: user.data._id,
           title: movie.title,

@@ -15,7 +15,7 @@ export default function MovieCard({ movieData }) {
     <>
       <Row className="card-container g-4">
         {movieData.map((movie) => (
-          <Col key={movie.id}>
+          <Col key={movie.id ? movie.id : movie.imdbID}>
             <Card className="movie-card">
               <Card.Img src={movie.image} alt="box-art"></Card.Img>
               <Card.Body className="card-text">
