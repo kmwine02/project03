@@ -37,10 +37,10 @@ A user friendly application for searching and rating Christmas movies.
 ## Screenshots
 
 Once logged in, a user can search for movies and rate them,
-<img src="/src/components/images/search.png" />
+![search-page](./client/src/images/search.png)
 
 The user can save movies to their account along with a rating,
-<img src="/src/components/images/profile.png" />
+![profile-page](./client/src/images/profile.png)
 
 ## Repository
 
