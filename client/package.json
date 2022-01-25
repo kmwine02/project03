@@ -2,6 +2,7 @@
   "name": "project03",
   "version": "0.1.0",
   "private": false,
+  "proxy": "http://localhost:3001/",
   "dependencies": {
     "@apollo/client": "^3.5.7",
     "@emotion/react": "^11.7.1",
