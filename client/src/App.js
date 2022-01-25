@@ -13,6 +13,7 @@ import LoginPage from "./pages/login";
 import ProfilePage from "./pages/profile";
 import Navigation from "./components/navigation";
 import Footer from "./components/footer";
+import NotFoundPage from "./pages/notFound"
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -48,7 +49,7 @@ function App() {
             <Route path="/search" element={<SearchPage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/profile" element={<ProfilePage />} />
-            <Route path="*" element={<HomePage />} />
+            <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </div>
         <Footer />

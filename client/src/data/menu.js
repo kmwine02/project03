@@ -15,7 +15,7 @@ export const menu = [
   },
   {
     menuItem: "Logout",
-    menuLink: "/logout",
+    menuLink: "/search",
     className: "option",
     loginView: true,
     logoutView: false,
