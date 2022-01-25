@@ -15,6 +15,7 @@ A user friendly application for searching and rating Christmas movies.
 
 - [Technology](#Technology)
 - [Features](#Features)
+- [Screenshots] (#Screenshots)
 - [Repository Link](#Repository)
 - [Questions](#Questions)
 
@@ -22,16 +23,24 @@ A user friendly application for searching and rating Christmas movies.
 
 1. bcrypt
 2. GraphQL
-3. Sequelize
+3. Material UI
 4. Express-handlebars
-5. Bootstrap
+5. React Bootstrap
 
 ## Features
 
 - User Accounts
-- Seach Engine
+- Seach Engine utilizing iMDB API
 - Dynamically loaded information
 - Saving watched movies and their rating
+
+## Screenshots
+
+Once logged in, a user can search for movies and rate them,
+<img src="/client/src/components/images/search.png" />
+
+The user can save movies to their account along with a rating,
+<img src="/client/src/components/images/profile.png" />
 
 ## Repository
 

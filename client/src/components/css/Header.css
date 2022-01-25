@@ -52,6 +52,7 @@ a {
   color: #ad8a38;
   font-weight: bold;
   text-decoration: none;
+  float: right;
 }
 .mobile-option {
   display: none;
