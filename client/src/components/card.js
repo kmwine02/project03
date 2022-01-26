@@ -8,9 +8,9 @@ import { movies } from "../data/movies";
 
 export default function MovieCard({ movieData }) {
   console.log(movieData);
-  if (movieData.length === 0) {
-    movieData = movies;
-  }
+  // if (movieData.length === 0) {
+  //   movieData = movies;
+  // }
   return (
     <>
       <Row className="card-container g-4">
